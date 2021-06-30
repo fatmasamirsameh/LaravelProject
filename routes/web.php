@@ -55,8 +55,8 @@ Route::get('Register','testController@register');
 Route::get('Call','testController@Message');
 Route::get('student','testController@studentdata');
 // Route::post('submitform','testController@HandelForm') ;
-Route::post('submitform','testController@doRegister');
-Route::resource('user','userController');
+// Route::post('submitform','testController@doRegister');
+// Route::resource('user','userController');
 // user >> display (index) GET
 // user / create (create)
 // user >>  (Store) POST
@@ -69,6 +69,23 @@ Route::resource('user','userController');
 // });where('name','[a-z]+');
 
 Route::get('method','testController@filterUrl');
+
+
+
+# CURD 
+Route::get('Register','testController@register');
+
+Route::post('submitform','testController@doRegister');
+
+Route::get('display','testController@display');
+
+Route::get('delete/{id}','testController@delete');
+
+Route::get('productDetails/{id}','testController@show');
+
+Route::post('update','testController@update');
+
+Route::get('printMessage','userController@printMessage');
 
 
 Route::resource('user','userController');

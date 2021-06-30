@@ -52,7 +52,8 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>email</th>
+                <th>Description</th>
+                <th>Price</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
                 <th>Action</th>
@@ -65,11 +66,12 @@
         <tr>
             <th>{{ $fetchedData->id }}</th>
             <th>{{ $fetchedData->name }}</th>
-            <th>{{ $fetchedData->email }}</th>
+            <th>{{ $fetchedData->description }}</th>
+            <th>{{ $fetchedData->price }}</th>
             <th>{{ $fetchedData->created_at }}</th>
             <th>{{ $fetchedData->updated_at }}</th>
             <th> <a href='{{ url('/delete/'.$fetchedData->id) }}' class='btn btn-danger m-r-1em'>Delete</a>
-                 <a href='{{ url('/StudentDetails/'.$fetchedData->id) }}' class='btn btn-primary m-r-1em'>Edit</a></td>
+                 <a href='{{ url('/productDetails/'.$fetchedData->id) }}' class='btn btn-primary m-r-1em'>Edit</a></td>
 
             </tr>
 
