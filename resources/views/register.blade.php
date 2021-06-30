@@ -57,7 +57,8 @@
   <div class="form-group">
     <label for="exampleInputPassword1">New Password</label>
     <input type="password"  name="password"  value="{{ old('password') }}" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
+  
+ 
  
   
   <button type="submit" class="btn btn-primary">Submit</button>

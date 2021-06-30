@@ -69,6 +69,7 @@ Route::get('student','testController@studentdata');
 // });where('name','[a-z]+');
 
 Route::get('method','testController@filterUrl');
+Route::get('StudentDetails/{id}','testController@show');
 
 
 
@@ -88,13 +89,23 @@ Route::post('update','testController@update');
 Route::get('printMessage','userController@printMessage');
 
 
-Route::resource('user','userController');
-Route::get('Login','userController@login');
+Route::resource('user','userController')->middleware('checkAuth');
+
+
+Route::get('Login','userController@login')->name('login');
 
 Route::post('doLogin','userController@logicLogin');
 
 
+
 Route::get('Logout','userController@logout');
+Route::get('Lang/{lang}',function($lang){
+    if($lang == 'en'){
+        session()->put('lang','en');
+    }else{
+        session()->put('lang','ar');
+
+    }
 
 
-
+});

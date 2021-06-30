@@ -26,8 +26,7 @@
   <h2>Login</h2>
   <form   action ="{{url('/doLogin')}}"    method="post" enctype ="multipart/form-data">
  
-    @csrf
-
+     <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="form-group">
     <label for="exampleInputEmail1">Email </label>
     <input type="email"  name="email"  value="{{ old('email') }}"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -38,6 +37,11 @@
     <input type="password"  name="password"  value="{{ old('password') }}" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
  
+
+  <div class="form-group">
+    <input type="checkbox"  name="rememberMe"   >
+    <label for="exampleInputPassword1"> remember Me !!</label>
+  </div>
   
   <button type="submit" class="btn btn-primary">Login</button>
 </form>

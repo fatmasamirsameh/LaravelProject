@@ -14,6 +14,15 @@ class Students extends Migration
     public function up()
     {
         //
+        Schema::create('students', function (Blueprint $table) {
+          
+            $table->id();
+            $table->string('email',100)->unique();
+            $table->string('password');
+            $table->timestamps();
+
+       });
+
     }
 
     /**

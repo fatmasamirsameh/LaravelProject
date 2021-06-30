@@ -11,6 +11,15 @@ class userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct(){
+
+        $this->middleware('checkAuth',['except'  => ['create','store','login','logicLogin']]);
+
+     }
+
+
     public function index()
     {
         //
@@ -165,11 +174,19 @@ class userController extends Controller
         ]);
     
     
-          if(auth()->attempt($data,false)){
-              return redirect('/user');
-          }else{
-              return redirect('/Login');
-          }
+   $remember = false;
+
+   if($request->rememberMe){
+       $remember = true;
+   }
+
+
+
+     if(auth()->attempt($data,$remember)){
+         return redirect('/user');
+     }else{
+         return redirect('/Login');
+     }
     
     
      }

@@ -41,6 +41,10 @@
 
         </div>
 
+      <a href="{{ url('/Lang/en') }}">EN</a> | <a href="{{ url('/Lang/ar') }}">ع</a>
+
+
+
 
 
     <h3>{{ session()->get('message') }}</h3>
@@ -55,12 +59,12 @@
         <table class='table table-hover table-responsive table-bordered'>
             <!-- creating our table heading -->
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>email</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-                <th>Action</th>
+                <th>{{ trans('site.id') }}</th>
+                <th>{{ trans('site.name') }}</th>
+                <th>{{ trans('site.email') }}</th>
+                <th>{{ trans('site.createdAt') }}</th>
+                <th>{{ trans('site.updatedAt') }}</th>
+                <th>{{ trans('site.action') }}</th>
             </tr>
 
         
@@ -69,12 +73,22 @@
         
         <tr>
             <th>{{ $fetchedData->id }}</th>
-            <th>{{ $fetchedData->name }}</th>
+            <th> 
+            @if(session()->get('lang') == "en")
+                
+                {{ $fetchedData->name }}
+                
+            @else
+            {{ $fetchedData->nameAr }}
+            @endif
+            </th>
+
+
             <th>{{ $fetchedData->email }}</th>
             <th>{{ $fetchedData->created_at }}</th>
             <th>{{ $fetchedData->updated_at }}</th>
-            <th> <a href='' data-toggle="modal" data-target="#modal_single_del_{{$fetchedData->id }}" class='btn btn-danger m-r-1em'>Delete</a>
-                 <a href='{{ url('/user/'.$fetchedData->id.'/edit') }}' class='btn btn-primary m-r-1em'>Edit</a></td>
+            <th> <a href='' data-toggle="modal" data-target="#modal_single_del_{{$fetchedData->id }}" class='btn btn-danger m-r-1em'>{{ trans('site.delete') }}</a>
+                 <a href='{{ url('/user/'.$fetchedData->id.'/edit') }}' class='btn btn-primary m-r-1em'>{{ trans('site.edit') }}</a></td>
 
             </tr>
 
